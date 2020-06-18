@@ -62,7 +62,9 @@ yarn start (or npm start)
 
 [API Documentation on Postman](https://bold-flare-8813.postman.co/collections/10855582-29872061-2bf7-4052-ae88-00496c06eed2?version=latest&workspace=311942c3-638c-4d09-8371-abed9e9fd7a5#933c9d55-327b-4749-9235-f6bac301de46)
 
+Web App Localhost URL:  `http://localhost:3000`
 
+Backend API Localhost URL: `http://localhost:3003/api/v1/`
 
 ### Babel
 
@@ -199,22 +201,10 @@ Here, we tell nodemon to watch the files in the directory src/server where out s
 
 Express is a web application framework for Node.js. It is used to build our backend API's.
 
-src/server/index.js is the entry point to the server application. Below is the src/server/index.js file
+`src/server/index.js` is the entry point to the server application. Below is the `src/server/index.js` file
 
-```javascript
-const express = require("express");
-const os = require("os");
 
-const app = express();
-
-app.use(express.static("dist"));
-app.get("/api/getUsername", (req, res) =>
-  res.send({ username: os.userInfo().username })
-);
-app.listen(8080, () => console.log("Listening on port 8080!"));
-```
-
-This starts a server and listens on port 8080 for connections. The app responds with `{username: <username>}` for requests to the URL (/api/getUsername). It is also configured to serve the static files from **dist** directory.
+This starts a server and listens on port 8080 for connections. The app responds with `{username: <username>}` for requests to the URL (/api/getUsername). It is also configured to serve the static files from **public** directory.
 
 ### Concurrently
 

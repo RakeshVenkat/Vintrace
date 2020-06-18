@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import './app.css';
-import ReactImage from './react.png';
 
 export default class App extends Component {
-  state = { username: null };
+  state = { wine: null };
 
   componentDidMount() {
-    fetch('/api/getUsername')
+    fetch('/api/v1/wine')
       .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+      .then(wine => this.setState({ wine }));
   }
 
   render() {
-    const { username } = this.state;
+    const { wine } = this.state;
     return (
       <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <h2>This is the defauklt landing page</h2>
-        <img src={ReactImage} alt="react" />
+        <h2>THIS PAGE IS UNDER CONSTRUCTION</h2>
+        <h3>The following are the Wine details fetched from backend</h3>
+        {wine ? wine.data.lotCodes.map(el => (<h4>{el}</h4>)) : 'Please wait'}
+        <h6>This is a boilerplate to validate that the full stack app is functional!!</h6>
       </div>
     );
   }
